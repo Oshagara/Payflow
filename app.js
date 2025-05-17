@@ -2,6 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const walletRoutes = require('./routes/walletRoutes');
+const transactionRoutes = require('./routes/transactionRoutes');
 const cors = require('cors');
 
 
@@ -24,6 +26,8 @@ app.use((req, res, next) => {
     res.send('API is running...');
   });
 app.use('/auth', authRoutes);
+app.use('/wallet', walletRoutes);
+app.use('/transactions', transactionRoutes);
 
 // Wallet and Transaction routes will come next
 module.exports = app;
